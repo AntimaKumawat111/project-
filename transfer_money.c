@@ -3,7 +3,7 @@
 // #include <stdio.h>
 // #include <string.h>
 
-void transferMoney()
+void transferMoneyDetails()
 {
     long long accoutNumber, recipentBankNumber;
     char recipentName[45];
@@ -18,35 +18,32 @@ void transferMoney()
     printf("------\n");
 }
 
-long giveMoney()
-{
-    long give_money;
-    printf("how much money do you want to transfer \n");
-    scanf("%ld", &give_money);
-    printf("-----Money tranfered-----\n");
-    return give_money;
-}
-
 void checkBalance(long give_money)
 {
-    printf("hi\n");
     long balance = give_money;
-    printf("Your account total money\n");
+    printf("Your account total money ");
     if (give_money == 0)
     {
         printf("Your account is empty\n");
     }
     if (give_money > 0)
     {
-        printf("In your bank Your amount is %ld\n", give_money);
+        printf("is %ld\n", give_money);
     }
 }
+void giveMoney()
+{
+    long give_money;
+    printf("how much money do you want to transfer \n");
+    scanf("%ld", &give_money);
+    printf("-----Money tranfered successfuly-----\n");
+    checkBalance(give_money);
 
+}
 // int main()
 // {
 //     // transferMoney();
-//     long gm = giveMoney(565252);
-//     checkBalance(gm);
-
+//     giveMoney();
+//     // checkBalance(gm);
 //     return 0;
 // }

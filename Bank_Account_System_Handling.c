@@ -7,10 +7,10 @@ int main()
 {
     FILE *ptrtm = fopen("transfer_money.c", "r");
     FILE *ptr = fopen("accout.c", "r");
-    int number, n;
-    printf("---------\n");
+    int number, n, num;
+    printf("Choose--------->\n");
     printf("If you want to open an accout Enter - 1 \n");
-    printf(" If you want to tranfer money Enter - 2\n");
+    printf("If you want to tranfer money Enter - 2\n");
     printf("---------\n");
     printf("Enter : ");
     scanf("%d", &number);
@@ -22,20 +22,18 @@ int main()
         accout();
         break;
     case 2:
-        transferMoney();
-        long gm = giveMoney(565252);
-        printf("If you want to check your balace Enter - 1\n");
-        printf("Enter : ");
-        scanf("%d", &n);
-        if (n == 1)
-            checkBalance(gm);
-        else
-            break;
+
+        printf("If your transfer money 1st time , Enter 1: ");
+        scanf("%d", &num);
+        if (num == 1)
+        {
+            transferMoneyDetails();
+        }
+        giveMoney();
 
     default:
         break;
-
     }
-   
+
     return 0;
 }
