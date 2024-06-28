@@ -21,7 +21,7 @@ void transferMoneyDetails()
 void checkBalance(long give_money)
 {
     long balance = give_money;
-    printf("Your account total money ");
+    printf("Total money in your accout ");
     if (give_money == 0)
     {
         printf("Your account is empty\n");
