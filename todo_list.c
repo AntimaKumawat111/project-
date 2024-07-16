@@ -10,7 +10,8 @@ typedef struct TodoItem
 
 void todoListItemsName(int numItems, struct TodoItem *todoList)
 {
-    printf("Todo List ----->\n");
+    printf("\n");
+    printf("----- Todo List ----->\n");
     for (int i = 0; i < numItems; i++)
     {
         printf("%d - %s (%s)\n", i + 1, todoList[i].task, todoList[i].completed ? "Done" : "Not done");
@@ -57,7 +58,7 @@ void editWork(int numItems, struct TodoItem *todoList)
                 todoList[editworkNumber - 1].task[strcspn(todoList[editworkNumber - 1].task, "\n")] = 0;
             }
         }
-        printf("Is this work done work(0 for No ,1 for Yes) : ");
+        printf("\tIs this work done work(0 for No ,1 for Yes) : ");
         scanf("%d", &n);
         if (n == 1)
         {
@@ -68,6 +69,7 @@ void editWork(int numItems, struct TodoItem *todoList)
             todoList[editworkNumber - 1].completed = 0;
         }
     }
+    printf("\n");
 }
 
 int main()
