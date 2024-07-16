@@ -26,7 +26,6 @@ void doneworks(int numItems, struct TodoItem *todoList)
     if (donework < 1 || donework > numItems)
     {
         printf("Invalid task number.\n");
-        return;
     }
     todoList[donework - 1].completed = 1;
     printf("Work done: %d - %s (%s)\n", donework, todoList[donework - 1].task, "Done");
@@ -35,30 +34,38 @@ void doneworks(int numItems, struct TodoItem *todoList)
 
 void editWork(int numItems, struct TodoItem *todoList)
 {
-    int editworkNo, n;
+    int editworkNumber, n;
     char editName;
     printf("\n");
     printf("Which number of work do you want to edit : ");
-    scanf("%d", &editworkNo);
-    if (editworkNo < 0 || editworkNo > numItems)
+    scanf("%d", &editworkNumber);
+
+    if (editworkNumber < 1 || editworkNumber > numItems)
     {
         printf("Invalid number , Can't edit !\n");
     }
     else
     {
-        printf("Is this work done work(0,1) : ");
-        scanf("%d", &n);
+
         for (int i = 0; i <= numItems; i++)
         {
-            editworkNo--;
-            if (editworkNo == i)
+            if (i == editworkNumber)
             {
                 printf("Enter edit workname : ");
-                fgets(todoList[i].task, 100, stdin);
-                todoList[i].task[strcspn(todoList[i].task, "\n")] = 0;
-                todoList[i].completed = n;
-                editworkNo++;
+                getchar();
+                fgets(todoList[editworkNumber - 1].task, 100, stdin);
+                todoList[editworkNumber - 1].task[strcspn(todoList[editworkNumber - 1].task, "\n")] = 0;
             }
+        }
+        printf("Is this work done work(0 for No ,1 for Yes) : ");
+        scanf("%d", &n);
+        if (n == 1)
+        {
+            todoList[editworkNumber - 1].completed = 1;
+        }
+        else
+        {
+            todoList[editworkNumber - 1].completed = 0;
         }
     }
 }
